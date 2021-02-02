@@ -22,16 +22,12 @@ describe('Products page', () => {
     cy.get('@product').then((productData) => {
       cy.updateProductFormData(productData.newProduct)
     })
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(2000)
     cy.url().should('include', '/products')
     cy.get('[data-cy=cy-product-row]').should('have.length', 1)
   })
 
   it('should update new product', () => {
     cy.visit('/products')
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(2000)
     cy.contains('title').click()
     cy.get('@product').then((productData) => {
       cy.updateProductFormData(productData.updateProduct)
@@ -42,8 +38,6 @@ describe('Products page', () => {
 
   it('should delete product', () => {
     cy.visit('/products')
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(2000)
     cy.get('[data-cy=cy-product-row]').within(() => {
       cy.get('[type=checkbox]').check()
     })
