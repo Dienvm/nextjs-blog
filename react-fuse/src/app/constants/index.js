@@ -1,5 +1,0 @@
-export * from './stubDb'
-export * from './tableHead'
-export * from './routes'
-export * from './regex'
-export * from './errorMessage'
